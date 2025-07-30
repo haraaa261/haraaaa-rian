@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Ulang Tahun & 6 Bulan Kita 💘</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+    body {
+      background-color: #0d0d0d;
+      color: #fff;
+      font-family: 'Press Start 2P', cursive;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    h1, p, .button, .message {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeSlideIn 1s forwards;
+    }
+
+    h1 { animation-delay: 0.3s; }
+    .game-box p:nth-of-type(1) { animation-delay: 0.6s; }
+    .game-box p:nth-of-type(2) { animation-delay: 0.9s; }
+    .heart { animation-delay: 1.2s; }
+    .message { animation-delay: 1.5s; }
+    .button { animation-delay: 1.8s; }
+
+    @keyframes fadeSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .game-box {
+      background-color: #1a1a1a;
+      border: 4px solid #ff66cc;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 20px #ff66cc;
+      max-width: 600px;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      color: #ff66cc;
+      text-shadow: 2px 2px #000;
+      text-align: center;
+      margin-bottom: 20px;
+      z-index: 2;
+    }
+
+    .heart {
+      font-size: 24px;
+      animation: beat 1s infinite, fadeSlideIn 1s forwards;
+      color: #ff3366;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    .button {
+      background-color: #ff66cc;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .button:hover {
+      background-color: #e60073;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    /* Kembang api cinta */
+    .firework {
+      position: fixed;
+      width: 5px;
+      height: 5px;
+      background: #ff66cc;
+      border-radius: 50%;
+      animation: explode 1s ease-out forwards;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes explode {
+      0% {
+        transform: scale(0);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(10);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎉 Selamat Ulang Tahun, Sayang! 🎂<br>💖 Happy 6 Months Anniversary 💖</h1>
+
+  <div class="game-box">
+    <p class="heart">❤️❤️❤️❤️❤️❤️</p>
+    <p><strong>Player 1:</strong> Hara 💻</p>
+    <p><strong>Player 2:</strong> Rian 💕</p>
+    
+    <div class="message">
+      Hari ini spesial banget karena kamu lahir ke dunia, dan juga karena kita udah 6 bulan bareng-bareng.  
+      <br><br>Terima kasih udah nemenin aku sampai level 6 dalam game cinta ini.  
+      <br>Aku nggak sabar naik level berikutnya bersamamu.
+    </div>
+
+    <a href="https://gifft.me/id/o/l/os1us9ws9wledbwz4ac1aoyq" target="_blank" class="button">Klik disini ya sayang 💞</a>
+  </div>
+
+  <!-- Musik Otomatis -->
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-sweet.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Efek kembang api cinta -->
+  <script>
+    function createFirework(x, y) {
+      for (let i = 0; i < 12; i++) {
+        const firework = document.createElement('div');
+        firework.className = 'firework';
+        firework.style.left = x + 'px';
+        firework.style.top = y + 'px';
+        firework.style.backgroundColor = ['#ff66cc', '#ff3366', '#ff99cc'][i % 3];
+        document.body.appendChild(firework);
+
+        setTimeout(() => {
+          document.body.removeChild(firework);
+        }, 1000);
+      }
+    }
+
+    setInterval(() => {
+      const x = Math.random() * window.innerWidth;
+      const y = Math.random() * window.innerHeight / 2;
+      createFirework(x, y);
+    }, 800);
+  </script>
+
+</body>
+</html>
